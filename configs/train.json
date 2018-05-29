@@ -1,0 +1,14 @@
+{
+  "name": "em",
+  "em_loops": 3,
+  "epochs_per_loop": 2,
+  "iter_per_epoch": 9,
+  "learning_rate": 0.001,
+  "batch_size": 27,
+  "max_to_keep": 50,
+  "reuse": true,
+  "training": true,
+  "phones_path": "data/phone/phone_en.txt",
+  "wav_dir_path": "data/wav/letter/",
+  "aligns_path": "data/align/alignment_letter.mlf"
+}
