@@ -14,7 +14,7 @@ class FeatureGenerator(object):
         self.aligns_dict = load_aligns(self.aligns_path)
         self.bound_dict = load_boundaries(self.aligns_dict)
 
-    def gen_feats(self, win_radius=32):
+    def gen_feats(self, win_radius=80):
         """
         Generate features & labels for classifier.
         :param win_radius: sample numbers.

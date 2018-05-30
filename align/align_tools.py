@@ -4,10 +4,11 @@
 class Align(object):
     suffix = '.'
 
-    def __init__(self):
+    def __init__(self, default_distance=320):
         self.name = None
         self.phones = list()  # List of list (phoneme, begin_time, end_time).
         self.boundaries = None
+        self.frame_distance = default_distance  # Default frame distance(number of sample).
 
     def to_lines(self):
         lines = list()
@@ -29,7 +30,6 @@ class Align(object):
         boundaries = list()
         last_end = None  # End time of last phoneme.
         last_phone = None  # Name of last phoneme.
-        default_distance = 80  # Default frame distance(number of sample).
 
         for p in self.phones:
             if last_end is None:  # First phoneme.
@@ -41,7 +41,7 @@ class Align(object):
                 time = (last_end + float(p[1])) / 2
                 '''Boundary tuple:
                  (boundary_time, last_phoneme, current_phoneme)'''
-                boundaries.append((time, last_phone, p[0], default_distance))
+                boundaries.append((time, last_phone, p[0], self.frame_distance))
                 '''Set new end time & phoneme name'''
                 last_end = float(p[2])
                 last_phone = p[0]

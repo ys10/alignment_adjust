@@ -1,7 +1,7 @@
 {
   "name": "em",
-  "em_loops": 3,
-  "epochs_per_loop": 2,
+  "em_loops": 10,
+  "epochs_per_loop": 20,
   "iter_per_epoch": 9,
   "learning_rate": 0.001,
   "batch_size": 27,

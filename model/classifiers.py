@@ -20,11 +20,11 @@ class FCNetModel(BaseModel):
             labels = tf.cast(self.data["labels"], tf.int32)
 
             output = tf.layers.batch_normalization(features, training=self.config.training, name="bn_layer_0")
-            output = tf.layers.dense(inputs=output, units=64, activation=tf.nn.relu, name="hidden_layer_1")
+            output = tf.layers.dense(inputs=output, units=256, activation=tf.nn.relu, name="hidden_layer_1")
             output = tf.layers.batch_normalization(output, training=self.config.training, name="bn_layer_1")
-            output = tf.layers.dense(inputs=output, units=64, activation=tf.nn.relu, name="hidden_layer_2")
+            output = tf.layers.dense(inputs=output, units=256, activation=tf.nn.relu, name="hidden_layer_2")
             output = tf.layers.batch_normalization(output, training=self.config.training, name="bn_layer_2")
-            output = tf.layers.dense(inputs=output, units=16, activation=tf.nn.relu, name="hidden_layer_3")
+            output = tf.layers.dense(inputs=output, units=64, activation=tf.nn.relu, name="hidden_layer_3")
             output = tf.layers.batch_normalization(output, training=self.config.training, name="bn_layer_3")
             logits = tf.layers.dense(inputs=output, units=3, activation=tf.nn.softmax, name="output_layer")
 

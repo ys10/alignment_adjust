@@ -5,7 +5,7 @@ import tensorflow as tf
 def get_data_set_from_generator(generator, epochs=1, batch_size=3):
     data_set = tf.data.Dataset.from_generator(generator,
                                               output_types=(tf.int32, tf.int32, tf.int32, tf.int32),
-                                              output_shapes=(tf.TensorShape([65]), tf.TensorShape([]),
+                                              output_shapes=(tf.TensorShape([161]), tf.TensorShape([]),
                                                              tf.TensorShape([]), tf.TensorShape([1])))
     data_set = data_set.repeat(epochs)
     data_set = data_set.batch(batch_size)
