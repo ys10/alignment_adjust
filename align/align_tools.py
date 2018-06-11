@@ -114,6 +114,9 @@ def load_boundaries(aligns):
         dict {name1: boundary_list1, name2: boundary_list2, ...}
     """
     boundary_dict = dict()
+    bound_count = 0
     for name in aligns.keys():
         boundary_dict[name] = aligns[name].get_boundaries()
+        bound_count += len(boundary_dict[name])
+    print('boundaries count:%d' % bound_count)
     return boundary_dict

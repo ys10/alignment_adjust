@@ -21,6 +21,7 @@ class EMFramework(object):
         """
         :return:
         """
+        tf.logging.info('E step.')
         '''Prepare data'''
         self.sess.run([self.data_loader.training_init_op])
         next_data = self.data_loader.next_data
@@ -37,6 +38,7 @@ class EMFramework(object):
         """
         :return:
         """
+        tf.logging.info('M step.')
         '''Prepare data'''
         self.sess.run([self.data_loader.predict_init_op])
         next_data = self.data_loader.next_data

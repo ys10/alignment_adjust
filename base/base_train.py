@@ -16,6 +16,7 @@ class BaseTrain:
         tf.logging.info('Training...')
         start_epoch = self.model.cur_epoch_tensor.eval(self.sess)
         for cur_epoch in range(start_epoch, start_epoch + self.config.epochs_per_loop, 1):
+            tf.logging.info('   epoch:%d' % cur_epoch)
             self.train_epoch()
             self.sess.run(self.model.increment_cur_epoch_tensor)
         self.model.save(self.sess)

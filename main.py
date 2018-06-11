@@ -36,6 +36,7 @@ def main():
         em = EMFramework(train_config, predict_config, feature_generator,
                          data_loader, align_mender, classifier, logger, sess)
         for i in range(train_config.em_loops):
+            tf.logging.info('EM loop: %d' % i)
             em.e_step()
             if is_converged(*em.m_step()):
                 break
