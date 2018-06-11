@@ -1,6 +1,5 @@
 #  coding=utf-8
 from base.base_train import BaseTrain
-from tqdm import tqdm
 
 
 class Trainer(BaseTrain):
@@ -13,8 +12,7 @@ class Trainer(BaseTrain):
        -loop on the number of iterations in the config and call the train step
        -add any summaries you want using the summary
         """
-        loop = tqdm(range(self.config.iter_per_epoch))
-        for _ in loop:
+        for _ in range(self.config.iter_per_epoch):
             loss, acc, rec, pre, f1 = self.train_step()
             summaries_dict = {
                 'loss': loss,

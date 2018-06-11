@@ -1,6 +1,5 @@
 #  coding=utf-8
 from base.base_predict import BasePredict
-from tqdm import tqdm
 
 
 class Predictor(BasePredict):
@@ -13,9 +12,8 @@ class Predictor(BasePredict):
        -loop on the number of iterations in the config and call the train step
        -add any summaries you want using the summary
         """
-        loop = tqdm(range(self.config.iter_per_epoch))
         predictions = []
-        for _ in loop:
+        for _ in range(self.config.iter_per_epoch):
             pred = self.predict_step()
             predictions.extend(pred[0])
         return predictions
