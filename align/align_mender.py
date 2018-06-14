@@ -20,6 +20,8 @@ class AlignMender(object):
             move_dist_mean: move_dist_sum/bound_moved
         """
         wav_names, bound_indices, times = zip(*bound_info)
+        print('bound_info length: %d' % len(bound_info))
+        print('predictions length: %d' % len(predictions))
         df = pd.DataFrame({'wav_names': wav_names, 'bound_indices': bound_indices,
                            'times': times, 'predictions': predictions})
         bound_dict = load_boundaries(aligns_dict)
